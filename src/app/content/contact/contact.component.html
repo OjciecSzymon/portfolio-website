@@ -1,0 +1,66 @@
+@if (contactForm) {
+    <div class="contact">
+        <div class="page-head">
+            <h1 class="page-head--h1">Kontakt</h1>
+            <h2 class="page-head--h2">Gotowy na <span>nowe wyzwania</span></h2>
+        </div>
+        <div class="contact-content">
+            <ul class="contact-content--info">
+                <li>
+                    Szymon Ostrowski
+                </li>
+                <li>Białystok</li>
+                <li>
+                    Telefon: 
+                    <a class="tel" href="tel:884647887">
+                        884 647 887
+                    </a>
+                </li>
+                <li>
+                    Email:
+                    <a class="mail" href="mailto:szymon.ostrowski.work@gmail.com">
+                        {{'szymon.ostrowski.work@gmail.com'}}
+                    </a>
+                </li>
+                <li>
+                    <div class="social-media">
+                        @for (item of social; track $index) {
+                            <span (click)="openSocialMedia(item.link)" [matTooltip]="item.name">
+                                <fa-icon [icon]="item.icon"></fa-icon>
+                            </span>
+                        }
+                    </div>
+                </li>
+            </ul>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-content--form">
+                <mat-form-field>
+                    <mat-label>Imię</mat-label>
+                    <input type="text" matInput maxlength="50" class="mat-primary primary-input primary" [formControl]="contactForm.controls['firstName']"
+                        placeholder="Twoje imię">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Nazwisko</mat-label>
+                    <input type="text" matInput maxlength="50" [formControl]="contactForm.controls['lastName']"
+                        placeholder="Twoje nazwisko">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput maxlength="100" [formControl]="contactForm.controls['email']"
+                        placeholder="Twój adres email">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Telefon</mat-label>
+                    <input type="text" matInput maxlength="9" [formControl]="contactForm.controls['phone']"
+                        placeholder="Twój numer telefonu">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Wiadomość</mat-label>
+                    <textarea type="text" matInput maxlength="1000" [formControl]="contactForm.controls['description']"
+                        placeholder="Opisz ofertę pracy, wymagania, wynagrodzenie..."></textarea>
+                </mat-form-field>
+    
+                <button type="submit" class="my-button" [disabled]="contactForm.invalid">Wyślij ofertę</button>
+            </form>
+        </div>
+    </div>
+}

@@ -1,0 +1,11 @@
+<header class="header">
+    @if (!isContactPage) {
+        <div class="social-media">
+            @for (item of social; track $index) {
+                <span (click)="openSocialMedia(item.link)" [matTooltip]="item.name">
+                    <fa-icon [icon]="item.icon"></fa-icon>
+                </span>
+            }
+        </div>
+    }
+</header>

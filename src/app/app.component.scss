@@ -1,0 +1,34 @@
+.so-app {
+    width: 100%;
+    height: 100%;
+    // height: calc(100% - 87px);
+    padding-bottom: 24px;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: right 70%;
+    background-attachment: fixed;
+    &--wrapper {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 5fr 90px;
+        gap: 20px;
+        // padding: 60px 0 30px 0;
+        @media (max-width: 1024px) {
+            grid-template-rows: 5fr 120px;
+            grid-template-columns: none;
+        }
+    
+        app-content {
+            // width: 90%;
+            // height: 80%;
+            @media (max-width: 1024px) {
+            }
+        }
+        
+        app-navigation {
+            width: 100%;
+            // height: 20%;
+        }
+    }
+}

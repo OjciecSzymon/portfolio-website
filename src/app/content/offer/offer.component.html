@@ -1,0 +1,73 @@
+<div class="offer">
+    <div class="page-head">
+        <h1 class="page-head--h1">Portfolio</h1>
+        <h2 class="page-head--h2">Moje <span>projekty</span> i umiejętności</h2>
+    </div>
+    <div class="offer-content">
+        <!-- <div>
+            <h3>Co oferuje?</h3>
+            <ul class="offer-content--list list">
+                @for (item of basicOffer; track $index) {
+                    <li>{{ item }}</li>
+                }
+            </ul>
+        </div> -->
+        <div class="offer-content--bottom">
+            <div class="skills-section">
+                <h3>Umiejętności techniczne</h3>
+                <div class="skills-grid">
+                    @for (skill of skills; track $index) {
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <fa-icon [icon]="skill.icon" class="skill-icon"></fa-icon>
+                                <span class="skill-name">{{ skill.name }}</span>
+                                <span class="skill-percentage">{{ skill.level }}%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" [style.width.%]="skill.level"></div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+    
+            <div class="tools-section">
+                <h3>Narzędzia & Metodologie</h3>
+                <div class="tools-grid">
+                    @for (tool of tools; track $index) {
+                        <div class="tool-card">
+                            <fa-icon [icon]="tool.icon" class="tool-icon"></fa-icon>
+                            <span class="tool-name">{{ tool.name }}</span>
+                            <span class="tool-category">{{ tool.category }}</span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="offer-content--top">
+            <div class="offer-content--top_text">
+                <h3>Moje projekty</h3>
+                <p>
+                    W ciągu ostatnich lat realizowałem projekty dla klientów z różnych branż - od e-commerce 
+                    po aplikacje korporacyjne. Specjalizuję się w tworzeniu skalowalnych rozwiązań SPA 
+                    z wykorzystaniem Angular, TypeScript i Material Design. Każdy projekt to nowe wyzwanie 
+                    i możliwość rozwoju umiejętności.
+                </p>
+            </div>
+            <div class="offer-content--top_image"></div>
+        </div>
+
+        <div class="offer-content--top">
+            <div class="offer-content--top_image"></div>
+            <div class="offer-content--top_text">
+                <h3>GitHub & Kontakt</h3>
+                <p>
+                    Moje repozytoria GitHub zawierają przykłady kodu, projekty open source i demonstracje 
+                    umiejętności. Aktywnie uczestniczę w społeczności deweloperskiej, dzieląc się wiedzą 
+                    i ucząc się od innych. Zawsze otwarty na nowe wyzwania i możliwości współpracy.
+                </p>
+                <button class="button" (click)="goToContact()">Skontaktuj się</button>
+            </div>
+        </div>
+    </div>
+</div>

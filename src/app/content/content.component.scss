@@ -1,0 +1,20 @@
+.content {
+    width: 100%;
+    max-width: 1260px;
+    height: 100%;
+    // overflow: auto;
+    // max-height: 100vh;
+    padding: 0 0 20px 20px;
+    box-sizing: border-box;
+    // background: rgba(255,255,255,0.15);
+    // -webkit-backdrop-filter: blur(12px);
+    // backdrop-filter: blur(12px);
+    border-radius: 10px;
+    margin: auto;
+    // box-shadow: 0 6px 16px rgb(7 23 30 / 90%);
+    // display: flex;
+    
+    @media (max-width: 1024px) {
+        padding: 0 20px 20px 20px;
+    }
+}
