@@ -101,6 +101,9 @@ typings/
 .cache
 .parcel-cache
 
+# Angular cache
+.angular/
+
 # Next.js build output
 .next
 
