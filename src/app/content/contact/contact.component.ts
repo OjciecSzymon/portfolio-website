@@ -40,7 +40,7 @@ export class ContactComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.contactService.setSignal(true);
+    // this.contactService.setSignal(true);
   }
 
   onSubmit() {

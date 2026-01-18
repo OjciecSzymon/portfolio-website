@@ -35,10 +35,10 @@ export class AppComponent implements OnInit {
           };
           break;
         case '/contact':
-          this.backgroundConfig = {
-            url: 'url(../../assets/stronka.jpg)',
-            size: 'contain',
-          };
+          // this.backgroundConfig = {
+          //   url: 'url(../../assets/stronka.jpg)',
+          //   size: 'contain',
+          // };
           break;
         default:
           this.backgroundConfig = undefined;
