@@ -1,4 +1,7 @@
 <header class="header">
+    <div class="header-logo" (click)="goToHome()">
+        Szymon Ostrowski
+    </div>
     @if (!isContactPage) {
         <div class="social-media">
             @for (item of social; track $index) {

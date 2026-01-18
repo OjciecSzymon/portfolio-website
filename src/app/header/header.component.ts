@@ -5,6 +5,8 @@ import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ContactService } from '../services/about.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import { SOCIAL_CONST } from './header.consts';
 
 
 @Component({
@@ -14,22 +16,12 @@ import { Subscription } from 'rxjs';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  public social = [
-    {
-      icon: faFacebook,
-      name: 'Facebook',
-      link: 'https://facebook.com'
-    },
-    {
-      icon: faInstagram,
-      name: 'Instagram',
-      link: 'https://instagram.com'
-    }
-  ];
+  public social = SOCIAL_CONST;
   private subscription: Subscription;
   public isContactPage: boolean | null = false;
 
-  constructor(private contactSevice: ContactService) {
+  constructor(private contactSevice: ContactService, 
+              private router: Router) {
     this.subscription = this.contactSevice.signal$.subscribe((value: boolean | null) => {
       this.isContactPage = value;
     });
@@ -37,6 +29,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     
+  }
+
+  goToHome() {
+    this.router.navigateByUrl('/home');
   }
 
   openSocialMedia(link: string) {

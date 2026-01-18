@@ -13,16 +13,39 @@
         padding: 10px 40px;
         text-align: center;
         text-transform: uppercase;
+
+        @media (max-width: 460px) {
+            font-size: 25px;
+        }
         span {
             display: inline-block;
             font-size: 22px;
             margin-bottom: 20px;
             color: #696969;
             text-transform: none;
+            animation: colorChange 7s ease-in-out infinite;
         }
     }
     button {
         margin: 0 auto auto auto
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        color: #696969;
+    }
+    25% {
+        color: #d3e24a;
+    }
+    50% {
+        color: #696969;
+    }
+    75% {
+        color: #4ae2a0;
+    }
+    100% {
+        color: #696969;
     }
 }
 

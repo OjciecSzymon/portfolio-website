@@ -19,6 +19,6 @@ export class AboutComponent {
   constructor(private router: Router) {}
 
   goToOffer() {
-    this.router.navigateByUrl('/offer');
+    window.open('https://kadrikod.pl/portfolio/', '_blank');
   }
 }

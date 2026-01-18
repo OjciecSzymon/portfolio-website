@@ -2,6 +2,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: 1fr 2fr;
+    }
     
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
@@ -17,15 +21,26 @@
         border-radius: 4px;
         box-shadow: inset 0px 0px 15px 2px #000;
         gap: 10px;
+        @media (max-width: 1024px) {
+            min-height: 110px;
+            background-repeat: no-repeat;
+            background-position: 0 45%;
+        }
         h3 {
             margin-top: auto;
             margin-bottom: 0;
+            @media (max-width: 768px) {
+                display: none;
+            }
         }
         h4 {
             margin: 0;
         }
         button {
             margin-bottom: 20px;
+            @media (max-width: 768px) {
+                display: none;
+            }
         }
     }
     &-right {

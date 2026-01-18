@@ -8,13 +8,13 @@
     box-sizing: border-box;
     gap: 20px;
     padding: 20px 20px 0 0;
-    @media (max-width: 1024px) {
+    @media (max-width: 1025px) {
         flex-direction: row;
         align-items: center;
         position: fixed;
         left: 0;
         right: 0;
-        bottom: 25px;
+        bottom: 24px;
         top: auto;
         background: rgba(0, 0, 0, 0.7803921569);
         padding: 10px 0;
@@ -41,7 +41,7 @@
             font-size: 22px;
         }
 
-        @media (min-width: 1024px) {
+        @media (min-width: 1025px) {
             &.active {
                 background-color: rgb(23 94 146);
                 box-shadow: none;
@@ -55,7 +55,7 @@
             }
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1025px) {
             &.active {
                 background-color: rgb(23 94 146);
                 box-shadow: none;
