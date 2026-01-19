@@ -21,6 +21,9 @@
                 </li>
             </ul>
             <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-content--form">
+                <!-- honeypot (anty-spam) - ma zostać puste -->
+                <input type="text" formControlName="website" autocomplete="off" tabindex="-1" style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;" />
+
                 <mat-form-field>
                     <mat-label>Imię</mat-label>
                     <input type="text" matInput maxlength="50" class="mat-primary primary-input primary" [formControl]="contactForm.controls['firstName']"
