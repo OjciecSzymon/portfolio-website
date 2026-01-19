@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faLaptop, faPalette, faFile, faWaveSquare, faTruckFast } from '@fortawesome/free-solid-svg-icons';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -16,7 +15,10 @@ export class AboutComponent {
   public faWaveSquare = faWaveSquare;
   public faTruckFast = faTruckFast;
 
-  constructor(private router: Router) {}
+  public birthDate = new Date('1995-11-25');
+  public age = Math.floor((new Date().getTime() - this.birthDate.getTime()) / (1000 * 60 * 60 * 24 * 365.25));
+
+  constructor() {}
 
   goToOffer() {
     window.open('https://kadrikod.pl/portfolio/', '_blank');

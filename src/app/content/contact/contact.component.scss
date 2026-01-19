@@ -53,4 +53,22 @@
             }
         }
     }
+
+    .my-button {
+        color: #676767;
+    }
+
+    mat-form-field {
+        mat-label {
+            color: #676767;
+        }
+    }
+}
+
+:host ::ng-deep {
+    .mat-mdc-form-field-required-marker {
+        &::after {
+            color: #676767 !important;
+        }
+    }
 }
