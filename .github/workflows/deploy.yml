@@ -25,6 +25,6 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
-          local-dir: dist/  
+          local-dir: dist/so/  
           server-dir: /public_html/ostrowski-dev.pl
           dangerous-clean-slate: true 
