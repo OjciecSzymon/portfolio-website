@@ -228,3 +228,25 @@ a {
         }
     }
 }
+
+/* Globalne style snackbarów (panelClass z MatSnackBar) */
+.snack-success .mdc-snackbar__surface {
+    background-color: #2e7d32 !important;
+    color: #fff !important;
+}
+
+.snack-error .mdc-snackbar__surface {
+    background-color: #c62828 !important;
+    color: #fff !important;
+}
+
+.snack-info .mdc-snackbar__surface {
+    background-color: #1565c0 !important;
+    color: #fff !important;
+}
+
+.snack-success .mdc-button__label,
+.snack-error .mdc-button__label,
+.snack-info .mdc-button__label {
+    color: #fff !important;
+}

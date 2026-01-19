@@ -1,3 +1,12 @@
+@use '@angular/material' as mat;
+
+:root {
+    @include mat.snack-bar-overrides((
+      button-color: orange,
+      container-color: red,
+    ));
+}
+
 :host {
     width: 100%;
 }
@@ -70,5 +79,15 @@
         &::after {
             color: #676767 !important;
         }
+    }
+
+    .snack-success {
+        background-color: #2e7d32 !important;
+        color: #fff;
+    }
+
+    .snack-error {
+        background-color: #c62828 !important;
+        color: #fff;
     }
 }

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {FormGroup, FormControl, FormsModule, Validators, ReactiveFormsModule} from '@angular/forms';
@@ -6,14 +6,17 @@ import { ContactService } from '../../services/about.service';
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NotificationService } from '../../services/notification.service';
+
 
 @Component({
   selector: 'app-contact',
-  imports: [FormsModule, ReactiveFormsModule, MatInputModule, MatButtonModule, MatTooltipModule, FontAwesomeModule],
+  imports: [FormsModule, ReactiveFormsModule, MatInputModule, MatButtonModule, MatTooltipModule, FontAwesomeModule, MatFormFieldModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
-export class ContactComponent implements OnInit, OnDestroy {
+export class ContactComponent implements OnDestroy {
   public contactForm = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     lastName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
@@ -33,36 +36,25 @@ export class ContactComponent implements OnInit, OnDestroy {
         name: 'Instagram',
         link: 'https://instagram.com'
       }
-    ];
+  ];
 
-  constructor(private contactService: ContactService) {
-
-  }
-
-  ngOnInit(): void {
-    // this.contactService.setSignal(true);
-  }
+  constructor(
+    private contactService: ContactService,
+    private notification: NotificationService
+  ) {}
 
   onSubmit() {
     if (this.contactForm.valid) {
       // Tutaj można dodać obsługę wysyłania formularza
       // np. przez HTTP service do backendu lub email service
-      console.log('Formularz wysłany:', this.contactForm.value);
       
       // Reset formularza po wysłaniu
       this.contactForm.reset();
-      
-      // Tutaj można dodać komunikat o pomyślnym wysłaniu
-      alert('Wiadomość została wysłana! Dziękuję za kontakt.');
+      this.notification.success('Wiadomość została wysłana');
     } else {
-      // Pokaż błędy walidacji
       this.contactForm.markAllAsTouched();
-      console.log('Formularz zawiera błędy:', this.contactForm.errors);
+      this.notification.error('Popraw zaznaczone pola');
     }
-  }
-
-  openSocialMedia(link: string) {
-    window.open(link, '_blank');
   }
 
   ngOnDestroy(): void {
