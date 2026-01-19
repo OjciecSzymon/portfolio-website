@@ -8,7 +8,6 @@ export type ContactFormPayload = {
   email: string;
   phone: string;
   description: string;
-  // honeypot (ma pozostać puste)
   website?: string;
 };
 

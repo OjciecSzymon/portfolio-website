@@ -17,7 +17,7 @@ export class NavigationComponent implements OnInit {
       image: faHome,
       color: '#fff',
       backgroundColor: '#3d8dd1',
-      url: '/home',
+      url: '/',
       active: true,
     },
     {
@@ -54,7 +54,8 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.events.subscribe((val: any) => {
-      this.activeRoute = val.url;
+      const pathName = window.location.pathname;
+      this.activeRoute = pathName;
     });
   }
 
