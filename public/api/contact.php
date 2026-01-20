@@ -50,8 +50,8 @@ $subject = 'Formularz kontaktowy: ' . $firstName . ' ' . $lastName;
 $template = file_get_contents('./templates/mail-template.html');
 
 $template = str_replace(
-  ['{{name}}', '{{email}}', '{{message}}'],
-  [$name, $email, nl2br(htmlspecialchars($text))],
+  ['{{firstName}}', '{{lastName}}', '{{phone}}', '{{email}}', '{{message}}'],
+  [$firstName, $lastName, $phone, $email, nl2br(htmlspecialchars($text))],
   $template
 );
 
