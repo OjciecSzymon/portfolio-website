@@ -1,9 +1,6 @@
 <?php
 declare(strict_types=1);
 
-// Prosty endpoint pod Angulara (hostingi typu lh.pl, bez SSH).
-// Wysyła maila na wskazany adres. W przeglądarce NIE trzymamy hasła SMTP.
-
 header('Content-Type: application/json; charset=utf-8');
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
@@ -20,7 +17,6 @@ if (!is_array($data)) {
   exit;
 }
 
-// Honeypot (jeśli bot wypełnił - udajemy sukces i nic nie robimy)
 $website = trim((string)($data['website'] ?? ''));
 if ($website !== '') {
   echo json_encode(['ok' => true]);
@@ -33,7 +29,7 @@ $email     = trim((string)($data['email'] ?? ''));
 $phone     = trim((string)($data['phone'] ?? ''));
 $desc      = trim((string)($data['description'] ?? ''));
 
-if ($firstName === '' || $lastName === '' || $email === '' || $phone === '' || $desc === '') {
+if ($firstName === '' || $lastName === '' || $email === '' || $desc === '') {
   http_response_code(400);
   echo json_encode(['ok' => false, 'error' => 'Uzupełnij wszystkie pola']);
   exit;
@@ -45,24 +41,25 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
   exit;
 }
 
-// Ustaw na swój docelowy adres (np. kontakt@ostrowski-dev.pl lub prywatny)
 $to = 'kontakt@ostrowski-dev.pl';
 
-// Nadawcę ustawiamy w domenie (żeby było bardziej wiarygodnie dla SPF/DMARC).
-// Reply-To ustawiamy na adres osoby z formularza.
 $from = 'kontakt@ostrowski-dev.pl';
 
 $subject = 'Formularz kontaktowy: ' . $firstName . ' ' . $lastName;
-$message = "Nowa wiadomość z formularza:\n\n"
-  . "Imię: {$firstName}\n"
-  . "Nazwisko: {$lastName}\n"
-  . "Email: {$email}\n"
-  . "Telefon: {$phone}\n\n"
-  . "Wiadomość:\n{$desc}\n";
+
+$template = file_get_contents('./templates/mail-template.html');
+
+$template = str_replace(
+  ['{{name}}', '{{email}}', '{{message}}'],
+  [$name, $email, nl2br(htmlspecialchars($text))],
+  $template
+);
+
+$message = $template;
 
 $headers = [];
 $headers[] = 'MIME-Version: 1.0';
-$headers[] = 'Content-Type: text/plain; charset=utf-8';
+$headers[] = 'Content-Type: text/html; charset=UTF-8';
 $headers[] = 'From: ' . $from;
 $headers[] = 'Reply-To: ' . $email;
 

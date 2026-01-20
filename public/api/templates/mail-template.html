@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+</head>
+<body style="margin:0; padding:0; background:#f4f4f4; font-family:Arial, Helvetica, sans-serif;">
+
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f4; padding:20px;">
+  <tr>
+    <td align="center">
+
+      <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff; border-radius:8px; overflow:hidden;">
+        
+        <!-- HEADER -->
+        <tr>
+          <td style="background:#1976d2; color:#ffffff; padding:20px; text-align:center; font-size:20px;">
+            Nowa wiadomość z formularza
+          </td>
+        </tr>
+
+        <!-- CONTENT -->
+        <tr>
+          <td style="padding:20px; color:#333333; font-size:14px; line-height:1.6;">
+            
+            <p><strong>Imię:</strong> {{name}}</p>
+            <p><strong>Email:</strong> {{email}}</p>
+
+            <hr style="border:none; border-top:1px solid #eeeeee; margin:20px 0;">
+
+            <p><strong>Wiadomość:</strong></p>
+            <p style="background:#f9f9f9; padding:15px; border-radius:5px;">
+              {{message}}
+            </p>
+
+          </td>
+        </tr>
+
+        <!-- FOOTER -->
+        <tr>
+          <td style="background:#f1f1f1; padding:10px; text-align:center; font-size:12px; color:#777;">
+            Wiadomość wysłana ze strony twojadomena.pl
+          </td>
+        </tr>
+
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
