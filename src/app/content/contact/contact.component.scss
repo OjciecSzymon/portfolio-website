@@ -65,6 +65,10 @@
 
     .my-button {
         color: #676767;
+        &:disabled {
+            color: #c3c3c3;
+            border-color: #c3c3c3;
+        }
     }
 
     mat-form-field {
