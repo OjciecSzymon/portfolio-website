@@ -50,7 +50,7 @@ export class ContactComponent implements OnDestroy {
       }).subscribe({
         next: (res) => {
           if (res?.ok) {
-            this.contactForm.reset();
+            this.clearForm();
             this.notification.success('Wiadomość została wysłana');
           } else {
             this.notification.error(res?.error ?? 'Nie udało się wysłać wiadomości');
@@ -66,6 +66,13 @@ export class ContactComponent implements OnDestroy {
       this.contactForm.markAllAsTouched();
       this.notification.error('Popraw zaznaczone pola');
     }
+  }
+
+  clearForm() {
+    this.contactForm.reset();
+    this.contactForm.markAsPristine();
+    this.contactForm.markAsUntouched();
+    this.contactForm.updateValueAndValidity();
   }
 
   ngOnDestroy(): void {

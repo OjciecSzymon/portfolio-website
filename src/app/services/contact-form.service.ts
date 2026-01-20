@@ -20,7 +20,6 @@ export class ContactFormService {
   constructor(private http: HttpClient) {}
 
   send(payload: ContactFormPayload): Observable<ContactFormResponse> {
-    // endpoint PHP będzie skopiowany z `public/` do roota po buildzie i działa na hostingu lh.pl
     return this.http.post<ContactFormResponse>('/api/contact.php', payload);
   }
 }
