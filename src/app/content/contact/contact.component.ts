@@ -22,7 +22,7 @@ export class ContactComponent implements OnDestroy {
     firstName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     lastName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     email: new FormControl('', [Validators.email, Validators.required, Validators.maxLength(100)]),
-    phone: new FormControl('', [Validators.pattern("[0-9 ]{9}"), Validators.required, Validators.maxLength(1000)]),
+    phone: new FormControl('', [Validators.pattern("[0-9 ]{9}"), Validators.maxLength(1000)]),
     description: new FormControl('', [Validators.required, Validators.maxLength(2000)]),
     website: new FormControl('')
   });
