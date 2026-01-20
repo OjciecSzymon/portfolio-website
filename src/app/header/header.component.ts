@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ContactService } from '../services/about.service';
 import { Subscription } from 'rxjs';

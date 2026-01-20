@@ -25,7 +25,7 @@ export class NavigationComponent implements OnInit {
       image: faAddressCard,
       color: '#fff',
       backgroundColor: '#3d8dd1',
-      url: '/about',
+      url: '/o-mnie',
       active: false,
     },
     {
@@ -33,7 +33,7 @@ export class NavigationComponent implements OnInit {
       image: faBriefcase,
       color: '#fff',
       backgroundColor: '#5b3dd1',
-      url: '/offer',
+      url: '/skile',
       active: false,
     },
     {
@@ -41,7 +41,7 @@ export class NavigationComponent implements OnInit {
       image: faAddressBook,
       color: '#fff',
       backgroundColor: '#d13d6d',
-      url: '/contact',
+      url: '/kontakt',
       active: false,
     },
   ];

@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
-export class FooterComponent implements OnInit, OnDestroy {
+export class FooterComponent implements OnDestroy {
   private subscription: Subscription;
   public isContactPage: boolean | null = false;
 
@@ -16,10 +16,6 @@ export class FooterComponent implements OnInit, OnDestroy {
     this.subscription = this.contactSevice.signal$.subscribe((value: boolean | null) => {
       this.isContactPage = value;
     });
-  }
-
-  ngOnInit(): void {
-    
   }
 
   ngOnDestroy(): void {

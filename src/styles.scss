@@ -32,14 +32,8 @@ body {
     overflow-x: hidden;
     position: relative;
 
-    // background-image: url("../../../../../Zkompa/moje/Pulpit-2020/gallery/gallery/article.jpg");
-    // background-repeat: no-repeat;
-    // background-size: cover;
     &::-webkit-scrollbar {
         display: block;
-        // background-color: red($color: #000000);
-        // z-index: 22;
-        // height: 100%;
         width: 5px;
         height: 200px;
     }
@@ -59,7 +53,6 @@ body {
 .my-button {
     border: none;
     background: transparent;
-    // color: #fff;
     border-bottom: 2px solid rgb(23 94 146);
     padding: 0 4px 8px 4px;
     margin: auto;
@@ -145,8 +138,6 @@ ul, li {
    ::view-transition-old(count) {
     animation-name: -ua-view-transition-fade-out, rotate-out;
    }
-// html, body { height: 100%; }
-// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 mat-form-field {
@@ -206,7 +197,6 @@ a {
 .list {
     li {
         padding: 12px 10px;
-        // margin-bottom: 10px;
         border-bottom: 1px solid #696969;
     }
 }

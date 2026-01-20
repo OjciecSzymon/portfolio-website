@@ -3,12 +3,12 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {FormGroup, FormControl, FormsModule, Validators, ReactiveFormsModule} from '@angular/forms';
 import { ContactService } from '../../services/about.service';
-import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NotificationService } from '../../services/notification.service';
 import { ContactFormService } from '../../services/contact-form.service';
+import { SOCIAL_CONST } from './contact.consts';
 
 
 @Component({
@@ -24,22 +24,10 @@ export class ContactComponent implements OnDestroy {
     email: new FormControl('', [Validators.email, Validators.required, Validators.maxLength(100)]),
     phone: new FormControl('', [Validators.pattern("[0-9 ]{9}"), Validators.required, Validators.maxLength(1000)]),
     description: new FormControl('', [Validators.required, Validators.maxLength(2000)]),
-    // honeypot - ma pozostać puste (ukryte w HTML)
     website: new FormControl('')
   });
 
-  public social = [
-      {
-        icon: faFacebook,
-        name: 'Facebook',
-        link: 'https://facebook.com'
-      },
-      {
-        icon: faInstagram,
-        name: 'Instagram',
-        link: 'https://instagram.com'
-      }
-  ];
+  public social = SOCIAL_CONST;
 
   constructor(
     private contactService: ContactService,
