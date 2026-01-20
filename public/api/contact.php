@@ -50,12 +50,10 @@ $subject = 'Formularz kontaktowy: ' . $firstName . ' ' . $lastName;
 $template = file_get_contents('./templates/mail-template.html');
 
 $template = str_replace(
-  ['{{firstName}}', '{{lastName}}', '{{phone}}', '{{email}}', '{{message}}'],
-  [$firstName, $lastName, $phone, $email, nl2br(htmlspecialchars($text))],
+  ['{{firstName}}', '{{lastName}}', '{{phone}}', '{{email}}'],
+  [$firstName, $lastName, $phone, $email, nl2br(htmlspecialchars($desc))],
   $template
 );
-
-$message = $template;
 
 $headers = [];
 $headers[] = 'MIME-Version: 1.0';
@@ -63,7 +61,7 @@ $headers[] = 'Content-Type: text/html; charset=UTF-8';
 $headers[] = 'From: ' . $from;
 $headers[] = 'Reply-To: ' . $email;
 
-$ok = @mail($to, '=?UTF-8?B?' . base64_encode($subject) . '?=', $message, implode("\r\n", $headers));
+$ok = @mail($to, '=?UTF-8?B?' . base64_encode($subject) . '?=', $template, implode("\r\n", $headers));
 
 if (!$ok) {
   http_response_code(500);
