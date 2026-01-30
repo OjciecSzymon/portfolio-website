@@ -9,9 +9,10 @@ footer {
     position: fixed;
     bottom: 0;
     left: 0;
-    .tel {
+    .tel, .simple-link {
         margin-right: auto;
         cursor: pointer;
         font-size: 12px;
+        color: #bfbfbf;
     }
 }
