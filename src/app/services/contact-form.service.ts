@@ -27,7 +27,7 @@ export class ContactFormService {
   }
 
   testPHP(): Observable<any> {
-    return this.http.get('http://127.0.0.1:8000/api/ping');
+    return this.http.get(`${environment.apiUrl}/api/ping`);
   }
 }
 
