@@ -14,7 +14,7 @@ import { SOCIAL_CONST } from './header.consts';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnDestroy {
   public social = SOCIAL_CONST;
   private subscription: Subscription;
   public isContactPage: boolean | null = false;
@@ -24,10 +24,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.subscription = this.contactSevice.signal$.subscribe((value: boolean | null) => {
       this.isContactPage = value;
     });
-  }
-
-  ngOnInit(): void {
-    
   }
 
   goToHome() {

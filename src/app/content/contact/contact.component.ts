@@ -35,6 +35,17 @@ export class ContactComponent implements OnDestroy {
     private contactFormService: ContactFormService
   ) {}
 
+  testPHPFunc() {
+    this.contactFormService.testPHP().subscribe({
+      next: (res) => {
+        console.log("Success", res);
+      },
+      error: (err) => {
+        console.log("Error", err);
+      }
+    });
+  }
+
   onSubmit() {
     if (this.contactForm.valid) {
       const payload = this.contactForm.getRawValue();
