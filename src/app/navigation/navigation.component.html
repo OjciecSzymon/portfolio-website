@@ -1,11 +1,14 @@
 @if (nav) {
     <nav class="nav">
         @for (item of nav; track $index) {
-            <div class="nav-box {{activeRoute === item.url ? 'active' : ''}}" 
-                 [style]="{color: item.color}"
-                 (click)="goTo(item)">
+            <a [routerLink]="item.url" 
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{exact: item.url === '/'}"
+               class="nav-box" 
+               [style]="{color: item.color}"
+               [attr.aria-label]="item.name">
                 <fa-icon [icon]="item.image"></fa-icon>
-            </div>
+            </a>
         }
     </nav>
 }
